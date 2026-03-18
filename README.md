@@ -34,7 +34,7 @@ npm start
 ```
 
 ## Environment Variables
-Create `.env` files in both frontend and backend directories:
+Create `.env` file in backend directories:
 
 Backend `.env`:
 ```
