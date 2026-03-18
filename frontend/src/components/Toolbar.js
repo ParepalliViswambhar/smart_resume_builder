@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Toolbar.css';
-import { Download, Save, ArrowLeft, Sparkles } from 'lucide-react';
+import { Download, Save, ArrowLeft } from 'lucide-react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import API_URL from '../config';

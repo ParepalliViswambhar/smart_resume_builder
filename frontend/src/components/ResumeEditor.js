@@ -61,6 +61,7 @@ function ResumeEditor({ resumeData, setResumeData }) {
         setResumeData(updatedData);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleContentChange = (path, value) => {

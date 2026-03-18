@@ -9,6 +9,7 @@ function AIAssistant({ context, onApply, onClose }) {
 
   useEffect(() => {
     fetchSuggestion();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context]);
 
   const fetchSuggestion = async () => {

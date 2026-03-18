@@ -1,15 +1,6 @@
 {
-  "version": 2,
   "buildCommand": "npm install && npm run build",
   "outputDirectory": "build",
-  "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "devCommand": "npm start",
+  "installCommand": "npm install"
 }
