@@ -11,15 +11,13 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# Configure CORS for production
-ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS').split(',')
-CORS(app, resources={
-    r"/api/*": {
-        "origins": ALLOWED_ORIGINS,
-        "methods": ["GET", "POST", "PUT", "DELETE"],
-        "allow_headers": ["Content-Type"]
-    }
-})
+# Configure CORS - permissive for development/testing
+CORS(app, origins="*", methods=['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'])
+
+# Add a simple test endpoint to verify CORS
+@app.route('/api/test', methods=['GET', 'OPTIONS'])
+def test_cors():
+    return jsonify({'message': 'CORS is working', 'status': 'ok'})
 
 # Configure Gemini
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
@@ -108,15 +106,22 @@ def delete_resume(resume_id):
 
 @app.route('/api/resumes', methods=['POST'])
 def save_resume():
-    data = request.json
-    conn = get_db_connection()
-    c = conn.cursor()
-    c.execute('INSERT INTO resumes (data, updated_at) VALUES (?, ?)',
-              (json.dumps(data), datetime.now()))
-    conn.commit()
-    resume_id = c.lastrowid
-    conn.close()
-    return jsonify({'id': resume_id, 'message': 'Resume saved successfully'})
+    try:
+        data = request.json
+        if not data:
+            return jsonify({'error': 'No data provided'}), 400
+            
+        conn = get_db_connection()
+        c = conn.cursor()
+        c.execute('INSERT INTO resumes (data, updated_at) VALUES (?, ?)',
+                  (json.dumps(data), datetime.now()))
+        conn.commit()
+        resume_id = c.lastrowid
+        conn.close()
+        return jsonify({'id': resume_id, 'message': 'Resume saved successfully'})
+    except Exception as e:
+        print(f"Error saving resume: {e}")
+        return jsonify({'error': 'Failed to save resume'}), 500
 
 @app.route('/api/resumes/<int:resume_id>', methods=['GET'])
 def get_resume(resume_id):
@@ -131,14 +136,26 @@ def get_resume(resume_id):
 
 @app.route('/api/resumes/<int:resume_id>', methods=['PUT'])
 def update_resume(resume_id):
-    data = request.json
-    conn = get_db_connection()
-    c = conn.cursor()
-    c.execute('UPDATE resumes SET data = ?, updated_at = ? WHERE id = ?',
-              (json.dumps(data), datetime.now(), resume_id))
-    conn.commit()
-    conn.close()
-    return jsonify({'message': 'Resume updated successfully'})
+    try:
+        data = request.json
+        if not data:
+            return jsonify({'error': 'No data provided'}), 400
+            
+        conn = get_db_connection()
+        c = conn.cursor()
+        c.execute('UPDATE resumes SET data = ?, updated_at = ? WHERE id = ?',
+                  (json.dumps(data), datetime.now(), resume_id))
+        
+        if c.rowcount == 0:
+            conn.close()
+            return jsonify({'error': 'Resume not found'}), 404
+            
+        conn.commit()
+        conn.close()
+        return jsonify({'message': 'Resume updated successfully'})
+    except Exception as e:
+        print(f"Error updating resume: {e}")
+        return jsonify({'error': 'Failed to update resume'}), 500
 
 @app.route('/api/ai/improve', methods=['POST'])
 def improve_content():

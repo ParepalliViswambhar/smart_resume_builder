@@ -12,26 +12,37 @@ function Toolbar({ resumeData, resumeId, onBack }) {
   const handleSave = async () => {
     setSaving(true);
     try {
+      let response;
       if (resumeId) {
         // Update existing resume
-        await fetch(`${API_URL}/api/resumes/${resumeId}`, {
+        response = await fetch(`${API_URL}/api/resumes/${resumeId}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(resumeData)
         });
-        alert('Resume updated successfully!');
       } else {
         // Create new resume
-        const response = await fetch(`${API_URL}/api/resumes`, {
+        response = await fetch(`${API_URL}/api/resumes`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(resumeData)
         });
-        const data = await response.json();
+      }
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to save resume');
+      }
+
+      const data = await response.json();
+      if (resumeId) {
+        alert('Resume updated successfully!');
+      } else {
         alert(`Resume saved! ID: ${data.id}`);
       }
     } catch (error) {
-      alert('Failed to save resume');
+      console.error('Save error:', error);
+      alert(`Failed to save resume: ${error.message}`);
     }
     setSaving(false);
   };
