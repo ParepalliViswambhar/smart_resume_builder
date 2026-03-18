@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './OnboardingForm.css';
 import { ArrowRight, ArrowLeft, Sparkles } from 'lucide-react';
 import API_URL from '../config';
-import API_URL from '../config';
 
 function OnboardingForm({ template, onComplete, onBack, onUseParser }) {
   const [step, setStep] = useState(1);

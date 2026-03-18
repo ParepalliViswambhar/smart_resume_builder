@@ -4,7 +4,6 @@ import { Download, Save, ArrowLeft, Sparkles } from 'lucide-react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import API_URL from '../config';
-import API_URL from '../config';
 
 function Toolbar({ resumeData, resumeId, onBack }) {
   const [saving, setSaving] = useState(false);

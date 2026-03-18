@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './SmartParser.css';
 import { Sparkles, ArrowRight, Loader, AlertCircle, CheckCircle } from 'lucide-react';
 import API_URL from '../config';
-import API_URL from '../config';
 
 function SmartParser({ template, onComplete, onBack }) {
   const [content, setContent] = useState('');

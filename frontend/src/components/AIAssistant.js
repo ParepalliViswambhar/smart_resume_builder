@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './AIAssistant.css';
 import { X, Sparkles, Loader } from 'lucide-react';
 import API_URL from '../config';
-import API_URL from '../config';
 
 function AIAssistant({ context, onApply, onClose }) {
   const [suggestion, setSuggestion] = useState('');

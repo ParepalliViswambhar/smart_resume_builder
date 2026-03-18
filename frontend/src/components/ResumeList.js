@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './ResumeList.css';
 import { FileText, Trash2, Eye, Calendar, ArrowLeft } from 'lucide-react';
 import API_URL from '../config';
-import API_URL from '../config';
 
 function ResumeList({ onSelect, onBack }) {
   const [resumes, setResumes] = useState([]);
