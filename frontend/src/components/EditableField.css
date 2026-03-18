@@ -1,0 +1,22 @@
+.editable-field {
+  outline: none;
+  cursor: text;
+  transition: background-color 0.2s;
+  border-radius: 2px;
+  padding: 2px 4px;
+  margin: -2px -4px;
+}
+
+.editable-field:hover {
+  background-color: rgba(102, 126, 234, 0.05);
+}
+
+.editable-field:focus {
+  background-color: rgba(102, 126, 234, 0.1);
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+.editable-field:empty:before {
+  content: attr(placeholder);
+  color: #cbd5e0;
+}

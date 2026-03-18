@@ -1,0 +1,261 @@
+.modern-template {
+  font-family: 'Inter', sans-serif;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+.header-section {
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.name-field {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 16px;
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.section h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #667eea;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summary-field {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #4a5568;
+}
+
+.education-item,
+.experience-item,
+.project-item {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.item-title-group h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 4px;
+}
+
+.company-field,
+.school-field {
+  font-style: italic;
+  color: #4a5568;
+}
+
+.item-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #718096;
+}
+
+.item-details {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 8px;
+}
+
+.separator {
+  margin: 0 8px;
+}
+
+.bullet-list {
+  margin-left: 20px;
+  margin-top: 8px;
+}
+
+.bullet-list li {
+  margin-bottom: 6px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.tech-field {
+  font-size: 0.9rem;
+  color: #667eea;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.add-description-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background: none;
+  border: 1px dashed #cbd5e0;
+  border-radius: 4px;
+  color: #718096;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+
+.add-description-btn:hover {
+  border-color: #667eea;
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skill-category {
+  display: flex;
+  gap: 12px;
+  font-size: 0.95rem;
+}
+
+.skill-category strong {
+  min-width: 120px;
+  color: #2d3748;
+}
+
+.achievement-item {
+  margin-bottom: 12px;
+  padding: 12px;
+  background: #f7fafc;
+  border-radius: 6px;
+  position: relative;
+}
+
+.achievement-item .item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.achievement-item .editable-field {
+  flex: 1;
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #f7fafc;
+  border: 1px dashed #cbd5e0;
+  border-radius: 6px;
+  color: #667eea;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 12px;
+}
+
+.add-btn:hover {
+  background: #edf2f7;
+  border-color: #667eea;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #e53e3e;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+}
+
+.ai-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.ai-btn:hover {
+  transform: scale(1.05);
+}
+
+.ai-btn-inline {
+  background: none;
+  border: none;
+  color: #667eea;
+  cursor: pointer;
+  padding: 2px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.bullet-list li:hover .ai-btn-inline {
+  opacity: 1;
+}
+
+@media print {
+  .add-btn,
+  .delete-btn,
+  .ai-btn,
+  .ai-btn-inline {
+    display: none !important;
+  }
+}

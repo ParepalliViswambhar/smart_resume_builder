@@ -1,0 +1,30 @@
+.resume-editor {
+  padding: 40px 20px;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+}
+
+.editor-container {
+  background: white;
+  width: 100%;
+  max-width: 850px;
+  min-height: 1100px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 60px;
+  position: relative;
+}
+
+@media print {
+  .resume-editor {
+    padding: 0;
+    background: white;
+  }
+  
+  .editor-container {
+    box-shadow: none;
+    border-radius: 0;
+    max-width: 100%;
+  }
+}

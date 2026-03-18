@@ -1,0 +1,70 @@
+.minimal-template {
+  font-family: 'Inter', sans-serif;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+.min-header {
+  margin-bottom: 32px;
+}
+
+.min-name {
+  font-size: 2.2rem;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.min-contact {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.min-section {
+  margin-bottom: 28px;
+}
+
+.min-section h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.min-item {
+  margin-bottom: 20px;
+}
+
+.min-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.min-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.min-bold {
+  font-weight: 600;
+}
+
+.min-italic {
+  font-style: italic;
+  color: #555;
+}
+
+.min-item ul {
+  margin-left: 20px;
+  margin-top: 8px;
+}
+
+.min-item li {
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}

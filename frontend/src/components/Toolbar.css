@@ -1,0 +1,69 @@
+.toolbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.toolbar-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.toolbar-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+}
+
+.toolbar-btn:hover {
+  background: #f7fafc;
+  transform: translateY(-1px);
+}
+
+.toolbar-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.toolbar-btn.primary {
+  background: #667eea;
+  color: white;
+  border: none;
+}
+
+.toolbar-btn.primary:hover {
+  background: #5568d3;
+}
+
+.toolbar-btn.back-btn {
+  color: #667eea;
+  border-color: #667eea;
+}
+
+@media (max-width: 768px) {
+  .toolbar-btn span {
+    display: none;
+  }
+}
